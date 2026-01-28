@@ -10,6 +10,17 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js"></script>
     <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
     </style>
 </head>
   <title>Document</title>
@@ -33,9 +44,10 @@
         let map = new mapboxgl.Map({
             container: 'map', // container ID
             style: 'mapbox://styles/mapbox/dark-v10',
-            zoom: 5, // starting zoom
-            minZoom: 4, // minimum zoom level of the map
-            center: [138, 38] // starting center
+            projection: 'albers',
+            zoom: 5,
+            minZoom: 4,
+            center: [-96, 37]
         });
 
     async function geojsonFetch() {
