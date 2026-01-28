@@ -82,15 +82,15 @@
       radii = [5, 15, 20];
 
     map.on('load', () => {
-    map.addSource('covid-rates', {
+    map.addSource('covidrates', {
         type: 'geojson',
-        data: 'assets/us-covid-2020-rates.json'
+        data: 'assets/us-covid-2020-counts.json'
     });
 
     map.addLayer({
         'id': 'rates-point',
         'type': 'circle',
-        'source': 'covid-rates',
+        'source': 'covidrates',
         'paint': {
     // increase the radii of the circle as the zoom level and dbh value increases
     'circle-radius': {
@@ -117,7 +117,7 @@
 });
 
 // click on tree to view magnitude in a popup
-map.on('click', 'covid-rates-point', (event) => {
+map.on('click', 'rates-point', (event) => {
     new mapboxgl.Popup()
         .setLngLat(event.features[0].geometry.coordinates)
         .setHTML(`<strong>Magnitude:</strong> ${event.features[0].properties.mag}`)

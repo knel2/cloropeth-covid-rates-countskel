@@ -43,7 +43,7 @@
             'pk.eyJ1Ijoia25lbDIiLCJhIjoiY21rdTlkYmx5MThyZjNmcHVrMDYzdXJ4dyJ9.HrXpvWOlXxo7fGCGnGQG6A';
         let map = new mapboxgl.Map({
             container: 'map', // container ID
-            style: 'mapbox://styles/mapbox/dark-v10',
+            style: 'mapbox://styles/mapbox/light-v10',
             projection: 'albers',
             zoom: 5,
             minZoom: 4,
@@ -51,35 +51,23 @@
         });
 
     async function geojsonFetch() {
-    // other operations
-    }
+      let response = await fetch('assets/us-covid-2020-rates.json');
+      let usdata = await response.json();
 
-    geojsonFetch();
+          map.on('load', function loadingData() {
+              map.addSource('stateData', {
+              type: 'geojson',
+              data: usdata
+          });
 
-    let response = await fetch('assets/us-covid-2020-rates.json');
-    let stateData = await response.json();
-
-    // map.on('load', function loadingData() {
-    // // add layer
-    // // add legend
-    // });
-//   map.addSource('stateData', {
-//     type: 'geojson',
-//     data: stateData
-// });
-    map.addSource('rateData', {
-    type: 'geojson',
-    data: 'assets/us-covid-2020-rates.json'
-});
-
-map.addLayer({
+          map.addLayer({
     'id': 'rate-Data-layer',
     'type': 'fill',
-    'source': 'rate-data',
+    'source': 'stateData',
     'paint': {
         'fill-color': [
             'step',
-            ['get', 'density'],
+            ['get', 'rates'],
             '#FFEDA0',   // stop_output_0
             10,          // stop_input_0
             '#FED976',   // stop_output_1
@@ -117,6 +105,32 @@ layers.forEach((layer, i) => {
     item.appendChild(value);
     legend.appendChild(item);
 });
+map.on('mousemove', ({point}) => {
+    console.log("hi")
+    const county = map.queryRenderedFeatures(point, {
+        layers: ['rate-Data-layer']
+    });
+    document.getElementById('text-description').innerHTML = county.length ?
+        `<h3>${county[0].properties.name}</h3><p><strong><em>${county[0].properties.density}</strong> people per square mile</em></p>` :
+        `<p>Hover over a state!</p>`;
+});
+
+    });
+    }
+
+    geojsonFetch();
+
+
+
+
+
+//     map.addSource('rateData', {
+//     type: 'geojson',
+//     data: 'assets/us-covid-2020-rates.json'
+// });
+
+
+
 
   </script>
 </body>
