@@ -10,9 +10,9 @@
 ### For the new type of functions used in the main.js I used they were mainly introduced in the review of how to make chloropeth maps such as of lab 4 from geog 328 these include map.on hover where your able to hover over the specific county similar to the function that we used to map 2 with the proportional map with the function of clicking on a point. The fetch function that helps with grabing to get the data, structure the map with colors depending on the rate of the state and the legend and then calling the fucntion again to be able to present it on the map.
 
 ## Screenshots
-![Chloropeth map](img/choropeth-map.jpg)
+![Chloropeth map](img/choropeth-mapf.jpg)
 
-![proportional map](img/proportional-map.jpg)
+![proportional map](img/proportional-mapf.jpg)
 
 ## Library in use, data sources used and ackowledgements
 ### The data sources that I used are [Covid-2020-cases](assets/us-covid-2020-counts.json) and [Covid-2020-rates](assets/us-covid-2020-rates.json) these two datasets used as geojson for the maps are from census data by the help of the lab that provided in the dilverable on step 6 of this lab.
