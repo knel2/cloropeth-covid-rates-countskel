@@ -3,8 +3,8 @@
 ### For the project I have 2 maps, the first one being the chlorpeth map of covid 19 rates in the U.S and the
 
 ## Map links
-[Map 1](map1.html)
-[Map 2](map2.html)
+[Map 1](https://knel2.github.io/cloropeth-covid-rates-countskel/map1.html)
+[Map 2](https://knel2.github.io/cloropeth-covid-rates-countskel/map2.html)
 
 
 ## Screenshots
