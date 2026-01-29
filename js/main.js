@@ -171,7 +171,7 @@ const grades = [50, 100, 1000],
 map2.on('click', 'rates-point', (event) => {
     new mapboxgl.Popup()
         .setLngLat(event.features[0].geometry.coordinates)
-        .setHTML(`<strong>Number of Cases:</strong> ${event.features[0].properties.cases}`)
+        .setHTML(`<strong>Number of Cases:</strong> ${event.features[0].properties.cases}  `)
         .addTo(map2);
 });
 
