@@ -94,7 +94,7 @@
         'paint': {
     // increase the radii of the circle as the zoom level and dbh value increases
     'circle-radius': {
-        'property': 'mag',
+        'property': 'cases',
         'stops': [
             [grades[0], radii[0]],
             [grades[1], radii[1]],
@@ -102,7 +102,7 @@
         ]
     },
     'circle-color': {
-        'property': 'mag',
+        'property': 'cases',
         'stops': [
             [grades[0], colors[0]],
             [grades[1], colors[1]],
@@ -120,7 +120,7 @@
 map.on('click', 'rates-point', (event) => {
     new mapboxgl.Popup()
         .setLngLat(event.features[0].geometry.coordinates)
-        .setHTML(`<strong>Magnitude:</strong> ${event.features[0].properties.mag}`)
+        .setHTML(`<strong>Magnitude:</strong> ${event.features[0].properties.cases}`)
         .addTo(map);
 });
 
