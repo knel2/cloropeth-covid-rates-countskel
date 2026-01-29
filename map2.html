@@ -61,10 +61,27 @@
         a {
             color: black
         }
+
+        #map2-title {
+            top: 0;
+            width: 400px;
+            height: 200px;
+            margin-top: 20;
+            position: absolute;
+        }
+        /* .map-overlay {
+
+} */
   </style>
 </head>
 <body>
-  <div id ="map"></div>
+    <div  id = "map2-title" >
+        <h2>Proportional Map on Covid-19 cases</h2>
+    </div>
+    console.log(docmap2-title)
+  <div id ="map">
+
+  </div>
   <div id = "legend"></div>
   <!-- <script src="js/main.js"></script> -->
      <script>
@@ -79,7 +96,7 @@
             center: [-96, 37]
         });
     const grades = [50, 100, 1000, 4000, 8000, 10000],
-      colors = ['rgb(208,209,230)', 'rgb(103,169,207)', 'rgb(1,108,89)', 'rgb(252, 186, 3)', 'rgb(141, 51, 171)', 'rgb(171, 51, 121)' ],
+      colors = ['rgb(208,209,230)', 'rgb(103,169,207)', 'rgb(1,108,89)', 'rgb(252, 186, 3)', 'rgb(7, 51, 9)', 'rgb(171, 51, 121)' ],
       radii = [5, 15, 20, 25, 30, 35];
 
     map.on('load', () => {
@@ -99,7 +116,11 @@
         'stops': [
             [grades[0], radii[0]],
             [grades[1], radii[1]],
-            [grades[2], radii[2]]
+            [grades[2], radii[2]],
+            [grades[3], radii[3]],
+            [grades[4], radii[4]],
+            [grades[5], radii[5]]
+
         ]
     },
     'circle-color': {
@@ -107,7 +128,11 @@
         'stops': [
             [grades[0], colors[0]],
             [grades[1], colors[1]],
-            [grades[2], colors[2]]
+            [grades[2], colors[2]],
+            [grades[3], colors[3]],
+            [grades[4], colors[4]],
+            [grades[4], colors[4]],
+            [grades[5], colors[5]]
         ]
     },
     'circle-stroke-color': 'white',
@@ -132,7 +157,6 @@ map.on('click', 'rates-point', (event) => {
         //set up legend grades and labels
         var labels = ['<strong>Cases</strong>'],
             vbreak;
-        //iterate through grades and create a scaled circle and label for each
         for (var i = 0; i < grades.length; i++) {
             vbreak = grades[i];
             // you need to manually adjust the radius of each dot on the legend
