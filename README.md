@@ -5,9 +5,9 @@
 ## Links to the map
 
 ## Screenshots
-![Chloropeth map](img\choropeth-map.jpg)
+![Chloropeth map](img/choropeth-map.jpg)
 
-![proportional map](img\proportional-map.jpg)
+![proportional map](img/proportional-map.jpg)
 
 ## Primary Functions
 
